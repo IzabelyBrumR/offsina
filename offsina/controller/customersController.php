@@ -19,7 +19,6 @@ if($_POST){
 function getNameCustomerById($id){
     require_once './model/customersModel.php';
     $customer = new customersModel();
-    //TODO: Montar método customer para preencher na lista de veículos.
     $result = $customer->getCustomerById($id);
     if($result){
         return $customer->getFirst_name();

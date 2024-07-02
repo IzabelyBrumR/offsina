@@ -23,9 +23,9 @@ if ($_POST) {
     $veiculo->setRenavam($_POST['renavam']);
     $veiculo->save();
     if ($veiculo->getTotal() > 0) {
-        header('location:../listaVeiculos.php?success');
+        header('location:../listaVeiculos.php?error');
     } else {
-        header('location:../listaVeiculos.php?error-database');
+        header('location:../listaVeiculos.php?success');
     }
 } else if (isset($_REQUEST['id'])) {
     require_once './model/vehiclesModel.php';
@@ -42,11 +42,9 @@ if ($_POST) {
             //Apaga
             $veiculo->delete($id);
             if ($veiculo->getTotal() > 0) {
-                //TODO: imprimir mensagem de registo excluído com sucesso e redirecionar
-                header('location:../listaVeiculos.php?cod=success');
+                header('location:./listaVeiculos.php?cod=success');
             } else {
-                //TODO: imprimir mensagem de que um erro ocorreu e pedir para voltar mais tarde e redirecionar.
-                header('location:../listaVeiculos.php?cod=error');
+                header('location:./listaVeiculos.php?cod=error');
             }
         }
     }

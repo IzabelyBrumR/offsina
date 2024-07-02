@@ -10,7 +10,6 @@ class customersModel
 {
     protected $id;
    
-    //TODO: Insira as propriedades dos clientes aqui.
     protected $first_name;
     protected $last_name;
     protected $phone;
@@ -21,8 +20,6 @@ class customersModel
     protected $zip_code;
     protected $registration_date;
     
-
-    //TODO: Crie os métodos acessores e modificadores aqui.
     public function getId() {
         return $this->id;
     }

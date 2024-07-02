@@ -1,5 +1,6 @@
 <?php
-require_once 'ConexaoMysql.php';
+@require_once 'ConexaoMysql.php';
+
 class ordersModel {
     
     public  $id;
@@ -7,7 +8,7 @@ class ordersModel {
     public  $problem;
 
     public function __construct() {
-        //vazio
+        
     }
    public function getId() {
        return $this->id;
@@ -43,6 +44,7 @@ class ordersModel {
         $db->Desconectar();
         return $resultList;
     }  
+
     function cadastro($vehicles,$problem) {
         $db = new ConexaoMysql();
         $db->Conectar(); 
@@ -51,22 +53,14 @@ class ordersModel {
         $db->Desconectar();
         return $db->total;
     }
-    function loadById($carroId) {
 
-        //Criar um objeto de conexão
+    public function delete($id){
         $db = new ConexaoMysql();
-    
-        //Abrir conexão com banco de dados
         $db->Conectar();
-    
-        //Criar consulta
-        $sql = 'SELECT * FROM vehicles where id =' . $carroId;
-        //Executar método de consulta
-        $resultList = $db->Consultar($sql);
-    
+        $sql = 'DELETE from orders where id = '.$id.';';
+        $db->Executar($sql);
         $db->Desconectar();
-    
-        return $resultList;
+        return $db->total;
     }
 }
 ?>

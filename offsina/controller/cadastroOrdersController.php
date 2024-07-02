@@ -7,7 +7,6 @@ if ($_POST) {
     $usr = new ordersModel();
     $usr->cadastro($vehicles,$problem);
 
-    
+    header('location:../listaOrdensServico.php?success');
 }  
-    header('location:../listaOrdensServico.php?sucess');
 ?>

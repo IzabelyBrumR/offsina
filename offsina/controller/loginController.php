@@ -18,10 +18,8 @@ if ($_POST) {
             $_SESSION['firstName'] = $empregado->getFirstName();
             
             if (isset($lembrar) && $lembrar == 1) {
-                // Se lembrar está marcado, cria o cookie
                 setcookie('email', $email, time() + (86400 * 30), "/");
             } else {
-                // Se não, remove o cookie
                 setcookie('email', "", time() - (86400 * 30), "/");
             }
     

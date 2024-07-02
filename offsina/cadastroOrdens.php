@@ -11,18 +11,14 @@ $OS = new ordersModel();
 <?php
 
 if($_REQUEST['id']){
-
- $vehiclesId = $_GET['id']; 
-
-   $vehicles = $OS->loadById($vehiclesId);
-
-foreach ($vehicles as $vehicles) {
-
-
+    require_once './controller/ordersController.php';
+    $vehiclesId = $_REQUEST['id']; 
+    $plate = loadOrdersById($vehiclesId);
+}
  ?>
 <div class="mb-3">
         <label for="vehicles" class="form-label">Veículo</label>
-        <input type="text" class="form-control" id="vehicles" name="vehicles" value="<?php echo $vehicles['license_plate']; }}?>" required>
+        <input type="text" class="form-control" id="vehicles" name="vehicles" value="<?php echo $plate;?>" required>
     </div>
     <div class="mb-3">
         <label for="problem" class="form-label">Problema/Defeito:</label>
